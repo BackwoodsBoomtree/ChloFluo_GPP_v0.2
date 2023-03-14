@@ -1,6 +1,13 @@
 # ChloFluo_GPP
 World's First SIF-based LUE GPP Model
 
+## Workflow:
+  APARchl
+    1. Grid TROPOMI without water, barren, and snow/ice soundings using the gridding package.
+    2. Run SIF QC to remove gridcells where std overlaps 0.
+    3. Calculate SIFyield.
+  
+
 ## Possible Future Improvements or Considerations
 
 * VPM uses a complex method to derive LSWImax that involves determining the SOS and EOS for each pixel using night time temp. I did not implement this scheme here because:
