@@ -5,7 +5,8 @@ using Statistics
 using GriddingMachine
 using Dates
 using GMT
-using Plots, Colors
+using Plots
+using Colors
 
 # export public functions
 export save_nc, sif_qc, calc_yield, calc_apar, calc_luemax,

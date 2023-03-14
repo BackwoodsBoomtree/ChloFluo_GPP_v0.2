@@ -11,19 +11,19 @@ using ChloFluo
 ######### APARchl #########
 
 # Quality control gridded SIF values
-sifqc = sif_qc("/mnt/g/TROPOMI/esa/gridded/1deg/8day/TROPOMI.ESA.SIF.201805-202109.global.8day.1deg.CF80.nc", "SIF_Corr_743", "n", "SIF_Corr_743_std", 32, 77);
+sifqc = sif_qc("/mnt/g/TROPOMI/esa/gridded/no_reflectance/1deg/TROPOMI.ESA.SIF.2019.8day.1deg.veg_only.nc", "SIF_Corr_743", "n", "SIF_Corr_743_std", 1, 46);
 heatmap(sifqc[:,:,23], title = "SIF QCed", bg = :white, color = :viridis)
-save_nc(sifqc, "/mnt/g/ChloFluo/input/SIF/1deg/SIFqc.8day.1deg.CF80.2019.nc", 2019, "sif743_qc", "SIF743 Quality Controlled", "mW/m²/sr/nm");
+save_nc(sifqc, "/mnt/g/ChloFluo/input/SIF/1deg/SIFqc.8day.1deg.veg_only.CF80.2019.nc", 2019, "sif743_qc", "SIF743 Quality Controlled", "mW/m²/sr/nm");
 
 # Calculate SIFyield
-sifyield = calc_yield("/mnt/g/CLIMA/clima_land_2019_1X_1H.hs.nc");
+sifyield = calc_yield("/mnt/g/CLIMA/a8_gm2_wd1_2019_1X_8D.c3.epar.nc");
 heatmap(sifyield[:,:,23], title = "SIFyield", bg = :white, color = :viridis)
-save_nc(sifyield, "/mnt/g/ChloFluo/input/yield/1deg/yield.2019.8-day.1deg.nc", 2019, "sif_yield", "Quantum Yield of Fluorescence", "mJ nm-1 sr-1 umol-1");
+save_nc(sifyield, "/mnt/g/ChloFluo/input/yield/1deg/yield.2019.8-day.1deg.v2.nc", 2019, "sif_yield", "Quantum Yield of Fluorescence", "mJ nm-1 sr-1 umol-1");
 
 # Calculate APARchl
-apar = calc_apar("/mnt/g/ChloFluo/input/SIF/1deg/SIFqc.8day.1deg.CF80.2019.nc", "/mnt/g/ChloFluo/input/yield/1deg/yield.2019.8-day.1deg.nc");
+apar = calc_apar("/mnt/g/ChloFluo/input/SIF/1deg/SIFqc.8day.1deg.veg_only.CF80.2019.nc", "/mnt/g/ChloFluo/input/yield/1deg/yield.2019.8-day.1deg.v2.nc");
 heatmap(apar[:,:,23], title = "APAR Chlorophyll", bg = :white, color = :viridis)
-save_nc(apar, "/mnt/g/ChloFluo/input/APARchl/1deg/apar.2019.8-day.1deg.nc", 2019, "aparchl", "Absorbed PAR by Chlorophyll", "μmol/m-2/day-1");
+save_nc(apar, "/mnt/g/ChloFluo/input/APARchl/1deg/apar.2019.8-day.1deg.v2.nc", 2019, "aparchl", "Absorbed PAR by Chlorophyll", "μmol/m-2/day-1");
 
 
 ######### LUEmax #########
@@ -78,9 +78,9 @@ save_nc(stress, "/mnt/g/ChloFluo/input/stress/1deg/stress.8-day.1deg.2019.nc", 2
 
 ######### GPP #########
 
-gpp = calc_gpp("/mnt/g/ChloFluo/input/APARchl/1deg/apar.2019.8-day.1deg.nc", "/mnt/g/ChloFluo/input/LUE/1deg/LUEmax.1deg.nc", "/mnt/g/ChloFluo/input/stress/1deg/stress.8-day.1deg.2019.nc");
+gpp = calc_gpp("/mnt/g/ChloFluo/input/APARchl/1deg/apar.2019.8-day.1deg.v2.nc", "/mnt/g/ChloFluo/input/LUE/1deg/LUEmax.1deg.nc", "/mnt/g/ChloFluo/input/stress/1deg/stress.8-day.1deg.2019.nc");
 heatmap(gpp[:,:,23], title = "Gross Primary Production", bg = :white, color = :viridis)
-save_nc(gpp, "/mnt/g/ChloFluo/product/v01/1deg/ChloFluo.GPP.v01.1deg.CF80.2019.nc", 2019, "gpp", "Gross Primary Production", "g C/m-2/day-1");
+save_nc(gpp, "/mnt/g/ChloFluo/product/v01/1deg/ChloFluo.GPP.v01.1deg.CF80.2019.v2.nc", 2019, "gpp", "Gross Primary Production", "g C/m-2/day-1");
 
 ### NEXT STEPS ###
 #
