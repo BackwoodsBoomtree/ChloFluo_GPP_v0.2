@@ -1,7 +1,7 @@
 library(terra)
 library(viridis)
 
-data       <- "G:/ChloFluo/product/v01/1deg/ChloFluo.GPP.v01.1deg.CF80.2019.v2.nc"
+data       <- "G:/ChloFluo/product/v02/ChloFluo.GPP.v02.1deg.CF80.2019.nc"
 coastlines <- "C:/Russell/R_Scripts/TROPOMI_2/mapping/GSHHS_shp/c/GSHHS_c_L1.shp"
 
 r <- rast(data)
@@ -48,6 +48,6 @@ for (i in 1:nlyr(clipped)) {
 plot(clipped[[1]], xlim = c(100,150), ylim = c(-10, 10))
 plot(v, add = TRUE)
 
-writeCDF(clipped, "G:/ChloFluo/product/v01/1deg/clipfill/ChloFluo.GPP.v01.1deg.CF80.2019.clipfill.v2.nc",
+writeCDF(clipped, "G:/ChloFluo/product/v02/clipfill/ChloFluo.GPP.v02.1deg.CF80.2019.clipfill.nc",
          varname = "gpp", longname = "Gross Primary Production", unit = "g C/m-2/day-1",
          missval = -9999, overwrite = TRUE)
