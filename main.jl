@@ -80,7 +80,7 @@ save_nc(stress, "/mnt/g/ChloFluo/input/stress/1deg/stress.8-day.1deg.2019.nc", 2
 
 gpp = calc_gpp("/mnt/g/ChloFluo/input/APARchl/1deg/apar.2019.8-day.1deg.v2.nc", "/mnt/g/ChloFluo/input/LUE/1deg/LUEmax.1deg.nc", "/mnt/g/ChloFluo/input/stress/1deg/stress.8-day.1deg.2019.nc");
 heatmap(gpp[:,:,23], title = "Gross Primary Production", bg = :white, color = :viridis)
-save_nc(gpp, "/mnt/g/ChloFluo/product/v01/1deg/ChloFluo.GPP.v01.1deg.CF80.2019.v2.nc", 2019, "gpp", "Gross Primary Production", "g C/m-2/day-1");
+save_nc(gpp, "/mnt/g/ChloFluo/product/v02/ChloFluo.GPP.v02.1deg.CF80.2019.nc", 2019, "gpp", "Gross Primary Production", "g C/m-2/day-1");
 
 ### NEXT STEPS ###
 #
