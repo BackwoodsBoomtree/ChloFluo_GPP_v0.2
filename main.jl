@@ -90,3 +90,4 @@ save_nc(gpp, "/mnt/g/ChloFluo/product/v02/ChloFluo.GPP.v02.1deg.CF80.2019.nc", 2
 #      so that annual mean GPP can be properly calculated
 # 
 # 2. Run to_annual.R to calculate annual mean GPP
+# 3. Run clip_fill_SIF.R to fill NA values as 0 for plotting timeseries
