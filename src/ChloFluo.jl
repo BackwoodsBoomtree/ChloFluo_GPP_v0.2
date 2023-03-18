@@ -11,7 +11,7 @@ using Colors
 # export public functions
 export save_nc, sif_qc, calc_yield, calc_apar, calc_luemax,
        max_lswi, calc_wscalar, calc_temp_day, tparams,
-       calc_tscalar, calc_stress, calc_gpp, day_length, heatmap
+       calc_tscalar, calc_stress, calc_gpp, day_length
 
 include("GPP/calc_gpp.jl")
 
