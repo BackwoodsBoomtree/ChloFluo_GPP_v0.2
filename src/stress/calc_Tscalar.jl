@@ -17,6 +17,8 @@ function calc_tscalar(tday, topt, tmin, tmax)
 
     tday = reverse(mapslices(rotl90, tday, dims = [1,2]), dims = 1)  # Rotate and reverse to correct lat/lon
     topt = reverse(rotl90(topt), dims = 1)
+    tmin = reverse(rotl90(tmin), dims = 1)
+    tmax = reverse(rotl90(tmax), dims = 1)
 
     tscalar_stack = zeros(Float32, size(tday))
     for i in 1:size(tday)[3]
