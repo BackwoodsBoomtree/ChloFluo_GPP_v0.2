@@ -1,7 +1,7 @@
 library(terra)
 library(viridis)
 
-data       <- "G:/ChloFluo/input/SIF/1deg/SIFqc.8day.1deg.veg_only.CF80.2019.nc"
+data       <- "G:/ChloFluo/input/SIF/1deg/SIFqc.8day.1deg.veg_only.CF80.2019.no.hot.nc"
 coastlines <- "C:/Russell/R_Scripts/TROPOMI_2/mapping/GSHHS_shp/c/GSHHS_c_L1.shp"
 
 r <- rast(data)
@@ -48,6 +48,6 @@ for (i in 1:nlyr(clipped)) {
 plot(clipped[[1]], xlim = c(100,150), ylim = c(-10, 10))
 plot(v, add = TRUE)
 
-writeCDF(clipped, "G:/ChloFluo/input/SIF/1deg/clipfill/SIFqc.8day.1deg.veg_only.CF80.2019.clipfill.nc",
+writeCDF(clipped, "G:/ChloFluo/input/SIF/1deg/clipfill/SIFqc.8day.1deg.veg_only.CF80.2019.no.hot.clipfill.nc",
          varname = "sif743_qc", longname = "Daily Solar Induced Chlorophyll Fluorescence", unit = "mW/m2/sr/nm",
          missval = -9999, overwrite = TRUE)
