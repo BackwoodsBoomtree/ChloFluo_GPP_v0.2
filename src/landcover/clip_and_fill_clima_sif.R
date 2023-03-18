@@ -4,7 +4,7 @@ library(viridis)
 data       <- "G:/CLIMA/a8_gm2_wd1_2019_1X_8D.c3.epar.nc"
 coastlines <- "C:/Russell/R_Scripts/TROPOMI_2/mapping/GSHHS_shp/c/GSHHS_c_L1.shp"
 
-r <- rast(data)
+r <- rast(data, subds = "mSIF740")
 v <- vect(coastlines)
 
 ##### Clip to shapefile #####
