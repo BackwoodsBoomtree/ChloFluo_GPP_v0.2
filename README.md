@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/613649601.svg)](https://zenodo.org/doi/10.5281/zenodo.11388568)
 # ChloFluo_GPP
 World's First SIF-based LUE GPP Model
 
